@@ -1,6 +1,3 @@
 #!/bin/bash
-
-tblastn -query "$1" -subject "$2" -outfmt "6 qseqid sseqid pident length qlen" | \
-awk '$3 > 30 && $4 > ($5 * 0.9)' > "$3"
-
+tblastn -query "$1" -subject "$2" -outfmt "6 qseqid sseqid pident length qlen" | awk '$3 > 30 && $4 > ($5 * 0.9)' > "$3"
 wc -l < "$3"
